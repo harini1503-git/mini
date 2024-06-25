@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        #logo{
+            height: 200px;
+            width: 200px;
+        }
+        #profile{
+            height: 150px;
+            width: 120px;
+            border-radius: 50%;
+            margin-top: 50px;
+        }
+        #container1{
+            display: flex;
+        }
+        h1,h2{
+            margin-top: 80px;
+        }
+        #container2{
+            display: flex;
+            margin-left: 20%;
+        }
+        button{
+            height: 32px;
+            width: 118px;
+            border-radius: 20px;
+            margin-left: 50px;
+        }
+        #container3{
+            margin-left: 20%;
+        }
+        #posts{
+            height: 600px;
+            width: 900px;
+        }
+        .log{
+            background-color: blue;
+            color: white;
+            margin: 0px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <div id="container1">
+            <img src="https://logospng.org/download/instagram/logo-instagram-4096.png" id="logo">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <img src="<%= instadata.profile %>" id="profile">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <h1><%= instadata.name.toUpperCase() %> </h1> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <h2>Followers: <%= instadata.followers %></h2> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <h2>Followings: <%= instadata.followings %> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <button class="log">Login</button>
+            <button class="log">sign in</button>
+            
+        </div>
+        <div id="container2">
+            <h3>@ <%= instadata.name %></h3> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+            <button>Follow</button>&nbsp; &nbsp; &nbsp; &nbsp;  
+            <button>Message</button>&nbsp; &nbsp; &nbsp; &nbsp;
+            
+        </div>
+        <div id="biocontainer">
+            <h3>bio</h3>
+            <p><%= instadata.bio %></p>
+        </div>
+        <hr>
+        <div id="container3">
+            <% for(let post of instadata.posts){ %>
+                <img src="<%= post.image %>" alt="" id="posts">
+                <h3>Likes: <%= post.likes %></h3>
+                <h3>Comments: <%= post.comments %></h3>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
